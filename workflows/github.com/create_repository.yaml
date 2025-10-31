@@ -1,0 +1,251 @@
+version: "1"
+site: github.com
+task: create_repository
+description: "Click New button → Fill repo name → Select visibility → Add README → Create"
+use_storage_state: true
+default_after_wait_ms: 600
+
+steps:
+  # 1) Go to GitHub home/dashboard
+  - action: goto
+    name: open_github_home
+    url: "https://github.com"
+
+  - action: wait_for_selector
+    name: wait_home_loaded
+    selector:
+      strategy: css
+      value: "header[role='banner']"
+    timeout_ms: 60000
+
+  - action: screenshot
+    name: 00_github_home
+    full_page: true
+
+
+
+  # 2) Click "New" button (green button with + icon)
+  - action: click
+    name: click_new_button_primary
+    optional: true
+    selector:
+      strategy: css
+      value: "a[href='/new'], a:has-text('New')"
+    timeout_ms: 8000
+
+  - action: screenshot
+    name: s_new_button_clicked
+
+  - action: click
+    name: click_new_button_navbar
+    optional: true
+    selector:
+      strategy: css
+      value: "summary[aria-label='Create new…'], button[aria-label*='Create']"
+    timeout_ms: 8000
+
+  - action: screenshot
+    name: s_new_menu_opened
+
+  - action: click
+    name: select_new_repository
+    optional: true
+    selector:
+      strategy: css
+      value: "a:has-text('New repository')"
+    timeout_ms: 8000
+
+  - action: screenshot
+    name: s_new_repo_selected
+
+  # 3) Wait for create repository page
+  - action: wait_for_selector
+    name: wait_create_repo_page
+    selector:
+      strategy: css
+      value: "input[aria-label='Repository name'], input[name='repository[name]'], input#repository_name, input[id*='repository-name' i]"
+    timeout_ms: 60000
+
+  - action: screenshot
+    name: 01_create_repo_page
+
+  # 4) Fill repository name
+  - action: click
+    name: focus_repo_name
+    selector:
+      strategy: css
+      value: "input[aria-label='Repository name'], input[name='repository[name]'], input#repository_name, input[id*='repository-name' i]"
+    timeout_ms: 10000
+
+  - action: fill
+    name: fill_repo_name
+    selector:
+      strategy: css
+      value: "input[aria-label='Repository name'], input[name='repository[name]'], input#repository_name, input[id*='repository-name' i]"
+    text: "ui-capture-test-repo"
+
+  - action: wait
+    name: wait_after_repo_name
+    ms: 800
+
+  - action: screenshot
+    name: 02_repo_name_filled
+
+  # 5) Add description (optional but good to show)
+  - action: fill
+    name: fill_description
+    selector:
+      strategy: css
+      value: "input[aria-label='Description'], textarea[aria-label='Description'], input[placeholder='Description'], textarea[placeholder='Description'], input[name='repository[description]'], #repository_description, [id*='repository-description' i], input[name*='description' i], textarea[name*='description' i], input[id*='description' i], textarea[id*='description' i]"
+    text: "Automated UI testing repository"
+    timeout_ms: 12000
+
+  - action: wait
+    name: wait_after_description
+    ms: 500
+
+  - action: screenshot
+    name: 03_description_filled
+
+  # 6) Select visibility - Public
+  - action: click
+    name: select_public_visibility
+    optional: true
+    selector:
+      strategy: css
+      value: "input[value='public'], input#repository_visibility_public"
+    timeout_ms: 8000
+
+  - action: wait
+    name: wait_after_public
+    ms: 500
+
+  - action: screenshot
+    name: 04_public_selected
+
+  # Optional: Try Private visibility instead
+  - action: click
+    name: select_private_visibility
+    optional: true
+    selector:
+      strategy: css
+      value: "input[value='private'], input#repository_visibility_private"
+    timeout_ms: 8000
+
+  - action: screenshot
+    name: 04a_private_selected
+
+  # 7) Check "Add a README file"
+  - action: click
+    name: check_add_readme
+    selector:
+      strategy: css
+      value: ".controlBoxContainer:has-text('Add README') button, label:has-text('Add README'), [aria-label*='Add README' i], button:has-text('Add README'), input[name='repository[auto_init]'], input#repository_auto_init, input[type='checkbox'][name*='auto_init' i], input[type='checkbox'][id*='readme' i]"
+    timeout_ms: 12000
+
+  - action: wait
+    name: wait_after_readme
+    ms: 500
+
+  - action: screenshot
+    name: 05_readme_checked
+
+  # 8) Optional: Add .gitignore
+  - action: click
+    name: open_gitignore_dropdown
+    optional: true
+    selector:
+      strategy: css
+      value: "summary:has-text('.gitignore'), button:has-text('gitignore')"
+    timeout_ms: 5000
+
+  - action: wait
+    name: wait_gitignore_menu
+    ms: 800
+
+  - action: screenshot
+    name: 06_gitignore_dropdown
+
+  - action: fill
+    name: search_gitignore
+    optional: true
+    selector:
+      strategy: css
+      value: "input[placeholder*='gitignore']"
+    text: "Python"
+    timeout_ms: 5000
+
+  - action: wait
+    name: wait_search_results
+    ms: 500
+
+  - action: click
+    name: select_python_gitignore
+    optional: true
+    selector:
+      strategy: css
+      value: "div[data-filterable-for*='gitignore']:has-text('Python')"
+    timeout_ms: 5000
+
+  - action: screenshot
+    name: 07_gitignore_selected
+
+  # 9) Optional: Choose license
+  - action: click
+    name: open_license_dropdown
+    optional: true
+    selector:
+      strategy: css
+      value: "summary:has-text('license'), button:has-text('license')"
+    timeout_ms: 5000
+
+  - action: wait
+    name: wait_license_menu
+    ms: 800
+
+  - action: screenshot
+    name: 08_license_dropdown
+
+  - action: click
+    name: select_mit_license
+    optional: true
+    selector:
+      strategy: css
+      value: "div:has-text('MIT License')"
+    timeout_ms: 5000
+
+  - action: screenshot
+    name: 09_license_selected
+
+  # 10) Final screenshot before creating
+  - action: screenshot
+    name: 10_ready_to_create
+    full_page: true
+
+  # 11) Click "Create repository" button
+  - action: press
+    name: submit_via_enter
+    key: "Enter"
+
+  - action: click
+    name: create_repository
+    optional: true
+    selector:
+      strategy: css
+      value: "button:has-text('Create repository'):not([form]), button[type='submit']:not([form]):has-text('Create repository')"
+    timeout_ms: 10000
+
+
+  - action: screenshot
+    name: 11_repository_created
+    full_page: true
+
+  # 12) Verify we're on the new repo page
+  - action: wait
+    name: final_settle
+    ms: 1500
+
+  - action: screenshot
+    name: 12_repo_home_page
+
+ 

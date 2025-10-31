@@ -1,0 +1,74 @@
+site: "linear.app"
+task: "filter_issues"
+
+meta:
+  start_url: "https://linear.app/lokeshtest/my-issues/assigned"
+  output_dir_template: "datasets/linear.app/filter_issues/{run_id}"
+  storage_state_file: "storage_state/linear.app.json"
+  default_after_wait_ms: 600
+  vars:
+    FILTER_QUERY: "status:In Progress"
+
+steps:
+  # 0) Go to Assigned issues
+  - action: goto
+    url: "https://linear.app/lokeshtest/my-issues/assigned"
+
+  - action: wait_for_network_idle
+  - action: screenshot
+    name: "00_assigned_page"
+
+  # 1) Try to open the Filter UI via button, then always fall back to 'f'
+  # (The fallback is harmless if the panel already opened.)
+  - action: click
+    name: "try_filter_button
+    selector:
+      strategy: css
+      value: "button[aria-label='Filter'], button:has-text(\"Filter\")"
+    timeout_ms: 8000
+
+  - action: press
+    name: "fallback_press_f"
+    selector:
+      strategy: css
+      value: "body"
+    key: "f"
+
+  # 2) Wait for a non-URL filter panel/modal
+  - action: wait_for_selector
+    name: "wait_filter_panel"
+    selector:
+      strategy: css
+      value: "[role='dialog'], [aria-modal='true'], [data-testid='filters'], [data-testid='filter']"
+    timeout_ms: 10000
+  - action: screenshot
+    name: "01_filter_panel_open"
+
+  # 3) (Optional) Type a filter query (keep selectors permissive)
+  - action: click
+    name: "focus_filter_input"
+    selector:
+      strategy: css
+      value: "[role='dialog'] input, [role='dialog'] [contenteditable='true'], [data-testid='filters'] input"
+    timeout_ms: 8000
+
+  - action: type
+    name: "type_filter_query"
+    selector:
+      strategy: css
+      value: "[role='dialog'] input, [role='dialog'] [contenteditable='true'], [data-testid='filters'] input"
+    text: "{{ vars.FILTER_QUERY }}"
+  - action: screenshot
+    name: "02_filter_query_typed"
+
+  # 4) Apply (Enter) and capture the after state
+  - action: press
+    name: "apply_filter"
+    selector:
+      strategy: css
+      value: "body"
+    key: "Enter"
+
+  - action: wait_for_network_idle
+  - action: screenshot
+    name: "03_after_apply"

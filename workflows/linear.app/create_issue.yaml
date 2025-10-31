@@ -1,0 +1,154 @@
+version: "1"
+site: linear.app
+task: create_issue
+description: "Create an issue from My issues and capture states"
+use_storage_state: true
+default_after_wait_ms: 500
+
+steps:
+  - action: goto
+    name: open_my_issues
+    url: "https://linear.app/lokeshtest/my-issues/assigned"
+
+  - action: wait_for_network_idle
+    name: initial_idle
+    idle_ms: 500
+
+  - action: screenshot
+    name: 00_my_issues
+
+  # Open create issue via keyboard shortcut 'c'
+  - action: press
+    name: press_c
+    key: "c"
+    after_wait_ms: 150
+
+  # Wait for the issue modal/dialog
+  - action: wait_for_selector
+    name: wait_modal_dialog
+    selector:
+      strategy: css
+      value: "[role='dialog'], div[aria-modal='true']"
+      timeout_ms: 15000
+    state: visible
+
+  - action: screenshot
+    name: 01_modal_open
+
+  # Title field
+  - action: wait_for_selector
+    name: wait_title_input
+    selector:
+      strategy: css
+      value: >
+        [role='dialog'] input[type='text'],
+        [role='dialog'] [placeholder*='title' i],
+        [role='dialog'] [data-placeholder*='title' i],
+        [role='dialog'] [aria-label*='title' i]
+      timeout_ms: 20000
+    state: visible
+
+  - action: click
+    name: focus_title
+    selector:
+      strategy: css
+      value: >
+        [role='dialog'] input[type='text'],
+        [role='dialog'] [placeholder*='title' i],
+        [role='dialog'] [data-placeholder*='title' i],
+        [role='dialog'] [aria-label*='title' i]
+      timeout_ms: 20000
+
+  - action: type
+    name: fill_title
+    selector:
+      strategy: css
+      value: "[role='dialog'] :focus"
+      timeout_ms: 15000
+    text: "Sample issue title"
+
+  - action: screenshot
+    name: 02_title_typed
+
+  # Description field (rich editor) — move focus with Tab then type into :focus
+  - action: press
+    name: go_to_description
+    key: "Tab"
+
+  - action: wait_for_selector
+    name: wait_description_focus
+    selector:
+      strategy: css
+      value: "[role='dialog'] :focus"
+      timeout_ms: 10000
+    state: visible
+
+  - action: type
+    name: fill_description
+    selector:
+      strategy: css
+      value: "[role='dialog'] :focus"
+      timeout_ms: 15000
+    text: "Created by UI capture system"
+
+  - action: screenshot
+    name: 03_description_typed
+
+  # Submit
+  - action: wait_for_selector
+    name: wait_submit_button
+    selector:
+      strategy: css
+      value: "[role='dialog'] button:has-text('Create issue'), [role='dialog'] button:has-text('Create')"
+      timeout_ms: 15000
+    state: visible
+
+  - action: click
+    name: submit_issue
+    selector:
+      strategy: css
+      value: "[role='dialog'] button:has-text('Create issue'), [role='dialog'] button:has-text('Create')"
+      timeout_ms: 15000
+
+  - action: wait_for_network_idle
+    name: settle
+    idle_ms: 1000
+
+  - action: screenshot
+    name: 04_after_submit
+
+
+  # Page change code from project to my issues
+# version: "1"
+# site: linear.app
+# task: change_page_project_to_my_issues
+# description: "Navigate to My issues and capture page"
+# use_storage_state: true
+# default_after_wait_ms: 400
+
+# steps:
+#   - action: goto
+#     name: open_projects
+#     url: "https://linear.app/lokeshtest/projects"
+
+#   - action: wait_for_network_idle
+#     name: wait_page_load
+#     idle_ms: 500
+
+#   - action: screenshot
+#     name: 00_projects_page
+
+#   - action: click
+#     name: go_to_my_issues
+#     selector:
+#       strategy: css
+#       value: "a:has-text('My issues')"
+#       timeout_ms: 15000
+
+#   - action: wait_for_network_idle
+#     name: wait_my_issues_page
+#     idle_ms: 800
+
+#   - action: screenshot
+#     name: 01_my_issues_page
+

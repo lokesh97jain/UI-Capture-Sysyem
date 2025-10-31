@@ -1,0 +1,146 @@
+[
+  {
+    "run_id": "2025-10-27_01-47-28",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T01:47:28Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_01-47-28",
+    "ok": false,
+    "steps_executed": 2
+  },
+  {
+    "run_id": "2025-10-27_04-19-49",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T04:19:49Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_04-19-49",
+    "ok": false,
+    "steps_executed": 1
+  },
+  {
+    "run_id": "2025-10-27_04-22-06",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T04:22:06Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_04-22-06",
+    "ok": true,
+    "steps_executed": 2
+  },
+  {
+    "run_id": "2025-10-27_04-34-17",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T04:34:17Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_04-34-17",
+    "ok": false,
+    "steps_executed": 2
+  },
+  {
+    "run_id": "2025-10-27_04-43-43",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T04:43:43Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_04-43-43",
+    "ok": false,
+    "steps_executed": 2
+  },
+  {
+    "run_id": "2025-10-27_04-45-03",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T04:45:03Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_04-45-03",
+    "ok": false,
+    "steps_executed": 2
+  },
+  {
+    "run_id": "2025-10-27_05-06-16",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T05:06:16Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_05-06-16",
+    "ok": false,
+    "steps_executed": 3
+  },
+  {
+    "run_id": "2025-10-27_05-07-57",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T05:07:57Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_05-07-57",
+    "ok": false,
+    "steps_executed": 3
+  },
+  {
+    "run_id": "2025-10-27_05-54-25",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T05:54:25Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_05-54-25",
+    "ok": false,
+    "steps_executed": 3
+  },
+  {
+    "run_id": "2025-10-27_05-55-20",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T05:55:20Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_05-55-20",
+    "ok": false,
+    "steps_executed": 3
+  },
+  {
+    "run_id": "2025-10-27_06-06-12",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T06:06:12Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_06-06-12",
+    "ok": false,
+    "steps_executed": 3
+  },
+  {
+    "run_id": "2025-10-27_06-08-59",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T06:08:59Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_06-08-59",
+    "ok": false,
+    "steps_executed": 3
+  },
+  {
+    "run_id": "2025-10-27_06-11-32",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T06:11:32Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_06-11-32",
+    "ok": false,
+    "steps_executed": 3
+  },
+  {
+    "run_id": "2025-10-27_06-24-45",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T06:24:45Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_06-24-45",
+    "ok": false,
+    "steps_executed": 3
+  },
+  {
+    "run_id": "2025-10-27_06-25-28",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T06:25:28Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_06-25-28",
+    "ok": false,
+    "steps_executed": 3
+  },
+  {
+    "run_id": "2025-10-27_06-27-22",
+    "site": "www.notion.so",
+    "task": "create_database",
+    "started_at": "2025-10-27T06:27:22Z",
+    "output_dir": "C:\\Users\\lokes\\Downloads\\ui-capture-system\\datasets\\www.notion.so\\create_database\\2025-10-27_06-27-22",
+    "ok": false,
+    "steps_executed": 3
+  }
+]

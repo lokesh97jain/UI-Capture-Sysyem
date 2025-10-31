@@ -1,0 +1,433 @@
+{
+  "task": "create_issue",
+  "app": "linear",
+  "description": "Create an issue from My issues and capture states",
+  "url": "https://linear.app/lokeshtest/my-issues/assigned",
+  "captured_at": "2025-10-30T18:27:05.222123Z",
+  "total_steps": 18,
+  "execution_time_seconds": 25.206436,
+  "steps": [
+    {
+      "step_number": 1,
+      "screenshot": null,
+      "description": "open_my_issues",
+      "timestamp": "2025-10-30T18:27:06.462066Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": true
+      },
+      "action": {
+        "type": "goto",
+        "target": null,
+        "selector": null
+      },
+      "ui_state": {
+        "has_modal": false,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "Linear"
+      },
+      "capture_reason": "workflow_start"
+    },
+    {
+      "step_number": 2,
+      "screenshot": null,
+      "description": "initial_idle",
+      "timestamp": "2025-10-30T18:27:15.296889Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "wait_for_network_idle",
+        "target": null,
+        "selector": null
+      },
+      "ui_state": {
+        "has_modal": false,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "step_executed"
+    },
+    {
+      "step_number": 3,
+      "screenshot": "00_my_issues.png",
+      "description": "00_my_issues",
+      "timestamp": "2025-10-30T18:27:16.649379Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "screenshot",
+        "target": null,
+        "selector": null
+      },
+      "ui_state": {
+        "has_modal": false,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "step_executed"
+    },
+    {
+      "step_number": 4,
+      "screenshot": "00_my_issues.png",
+      "description": "press_c",
+      "timestamp": "2025-10-30T18:27:17.156647Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "press",
+        "target": null,
+        "selector": null
+      },
+      "ui_state": {
+        "has_modal": true,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "modal_appeared"
+    },
+    {
+      "step_number": 5,
+      "screenshot": "00_my_issues.png",
+      "description": "wait_modal_dialog",
+      "timestamp": "2025-10-30T18:27:18.139135Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "wait_for_selector",
+        "target": "[role='dialog'], div[aria-modal='true']",
+        "selector": "[role='dialog'], div[aria-modal='true']"
+      },
+      "ui_state": {
+        "has_modal": true,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "modal_appeared"
+    },
+    {
+      "step_number": 6,
+      "screenshot": "01_modal_open.png",
+      "description": "01_modal_open",
+      "timestamp": "2025-10-30T18:27:19.138287Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "screenshot",
+        "target": null,
+        "selector": null
+      },
+      "ui_state": {
+        "has_modal": true,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "modal_appeared"
+    },
+    {
+      "step_number": 7,
+      "screenshot": "01_modal_open.png",
+      "description": "wait_title_input",
+      "timestamp": "2025-10-30T18:27:19.951823Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "wait_for_selector",
+        "target": "[role='dialog'] input[type='text'], [role='dialog'] [placeholder*='title' i], [role='dialog'] [data-placeholder*='title' i], [role='dialog'] [aria-label*='title' i]",
+        "selector": "[role='dialog'] input[type='text'], [role='dialog'] [placeholder*='title' i], [role='dialog'] [data-placeholder*='title' i], [role='dialog'] [aria-label*='title' i]"
+      },
+      "ui_state": {
+        "has_modal": true,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "modal_appeared"
+    },
+    {
+      "step_number": 8,
+      "screenshot": "01_modal_open.png",
+      "description": "focus_title",
+      "timestamp": "2025-10-30T18:27:20.795283Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "click",
+        "target": "[role='dialog'] input[type='text'], [role='dialog'] [placeholder*='title' i], [role='dialog'] [data-placeholder*='title' i], [role='dialog'] [aria-label*='title' i]",
+        "selector": "[role='dialog'] input[type='text'], [role='dialog'] [placeholder*='title' i], [role='dialog'] [data-placeholder*='title' i], [role='dialog'] [aria-label*='title' i]"
+      },
+      "ui_state": {
+        "has_modal": true,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "modal_appeared"
+    },
+    {
+      "step_number": 9,
+      "screenshot": "01_modal_open.png",
+      "description": "fill_title",
+      "timestamp": "2025-10-30T18:27:21.624415Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "type",
+        "target": "[role='dialog'] :focus",
+        "selector": "[role='dialog'] :focus"
+      },
+      "ui_state": {
+        "has_modal": true,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "modal_appeared"
+    },
+    {
+      "step_number": 10,
+      "screenshot": "02_title_typed.png",
+      "description": "02_title_typed",
+      "timestamp": "2025-10-30T18:27:22.653055Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "screenshot",
+        "target": null,
+        "selector": null
+      },
+      "ui_state": {
+        "has_modal": true,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "modal_appeared"
+    },
+    {
+      "step_number": 11,
+      "screenshot": "02_title_typed.png",
+      "description": "go_to_description",
+      "timestamp": "2025-10-30T18:27:23.447354Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "press",
+        "target": null,
+        "selector": null
+      },
+      "ui_state": {
+        "has_modal": true,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "modal_appeared"
+    },
+    {
+      "step_number": 12,
+      "screenshot": "02_title_typed.png",
+      "description": "wait_description_focus",
+      "timestamp": "2025-10-30T18:27:24.248075Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "wait_for_selector",
+        "target": "[role='dialog'] :focus",
+        "selector": "[role='dialog'] :focus"
+      },
+      "ui_state": {
+        "has_modal": true,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "modal_appeared"
+    },
+    {
+      "step_number": 13,
+      "screenshot": "02_title_typed.png",
+      "description": "fill_description",
+      "timestamp": "2025-10-30T18:27:25.045702Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "type",
+        "target": "[role='dialog'] :focus",
+        "selector": "[role='dialog'] :focus"
+      },
+      "ui_state": {
+        "has_modal": true,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "modal_appeared"
+    },
+    {
+      "step_number": 14,
+      "screenshot": "03_description_typed.png",
+      "description": "03_description_typed",
+      "timestamp": "2025-10-30T18:27:26.096362Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "screenshot",
+        "target": null,
+        "selector": null
+      },
+      "ui_state": {
+        "has_modal": true,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "modal_appeared"
+    },
+    {
+      "step_number": 15,
+      "screenshot": "03_description_typed.png",
+      "description": "wait_submit_button",
+      "timestamp": "2025-10-30T18:27:26.849026Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "wait_for_selector",
+        "target": "[role='dialog'] button:has-text('Create issue'), [role='dialog'] button:has-text('Create')",
+        "selector": "[role='dialog'] button:has-text('Create issue'), [role='dialog'] button:has-text('Create')"
+      },
+      "ui_state": {
+        "has_modal": true,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "modal_appeared"
+    },
+    {
+      "step_number": 16,
+      "screenshot": "03_description_typed.png",
+      "description": "submit_issue",
+      "timestamp": "2025-10-30T18:27:27.721182Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "click",
+        "target": "[role='dialog'] button:has-text('Create issue'), [role='dialog'] button:has-text('Create')",
+        "selector": "[role='dialog'] button:has-text('Create issue'), [role='dialog'] button:has-text('Create')"
+      },
+      "ui_state": {
+        "has_modal": false,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "step_executed"
+    },
+    {
+      "step_number": 17,
+      "screenshot": "03_description_typed.png",
+      "description": "settle",
+      "timestamp": "2025-10-30T18:27:29.430333Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "wait_for_network_idle",
+        "target": null,
+        "selector": null
+      },
+      "ui_state": {
+        "has_modal": false,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "step_executed"
+    },
+    {
+      "step_number": 18,
+      "screenshot": "04_after_submit.png",
+      "description": "04_after_submit",
+      "timestamp": "2025-10-30T18:27:30.287900Z",
+      "url": {
+        "current": "https://linear.app/lokeshtest/my-issues/assigned",
+        "has_unique_url": true,
+        "changed_from_previous": false
+      },
+      "action": {
+        "type": "screenshot",
+        "target": null,
+        "selector": null
+      },
+      "ui_state": {
+        "has_modal": false,
+        "has_menu": false,
+        "has_dropdown": false,
+        "page_title": "My issues \u203a Assigned"
+      },
+      "capture_reason": "step_executed"
+    }
+  ],
+  "statistics": {
+    "url_based_states": 18,
+    "non_url_states": 0,
+    "modal_captures": 12,
+    "menu_captures": 0,
+    "total_execution_time": "25.2s",
+    "average_time_per_step": "1.4s"
+  }
+}

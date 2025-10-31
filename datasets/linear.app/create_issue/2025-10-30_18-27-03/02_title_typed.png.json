@@ -1,0 +1,15 @@
+{
+  "name": "02_title_typed",
+  "path": "02_title_typed.png",
+  "kind": "page",
+  "width": 1920,
+  "height": 1080,
+  "page_url": "https://linear.app/lokeshtest/my-issues/assigned",
+  "page_title": "My issues \u203a Assigned",
+  "ts": "2025-10-30T18:27:22Z",
+  "step_index": 10,
+  "step_action": "screenshot",
+  "site": null,
+  "task": null,
+  "extra": {}
+}

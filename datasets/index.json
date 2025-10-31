@@ -1,0 +1,29 @@
+{
+  "generated_at": "2025-10-30T17:09:24.496091Z",
+  "runs": [
+    {
+      "app": "www.notion.so",
+      "task": "create_database",
+      "run_dir": "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51",
+      "images": [
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\01_home.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\02_new_menu_open.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\03_database_named.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\03_new_database_panel.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\03b_title_focused.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\08_row1_added.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\09_rows_added.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\db_loaded.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\s_choose_database_fallback_text_clicked.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\s_choose_database_primary_clicked.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\s_open_new_icon_alt_label_clicked.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\s_open_new_icon_fallback_clicked.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\s_open_new_icon_primary_clicked.png",
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\s_open_new_icon_role_clicked.png"
+      ],
+      "meta": [
+        "datasets\\www.notion.so\\create_database\\2025-10-30_17-04-51\\manifest.json"
+      ]
+    }
+  ]
+}

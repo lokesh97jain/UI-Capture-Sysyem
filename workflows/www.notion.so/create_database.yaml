@@ -1,0 +1,327 @@
+version: "1"
+site: www.notion.so
+task: create_database
+description: "Click New ▾ -> Database -> name and configure"
+use_storage_state: true
+default_after_wait_ms: 600
+
+steps:
+  # 1) Open workspace home
+  - action: goto
+    name: open_home
+    url: "https://www.notion.so"
+
+  - action: wait
+    name: settle_home
+    ms: 1500
+
+  - action: screenshot
+    name: 01_home
+    full_page: true
+
+  # 2) Open the compose/New menu via the pencil+chevron icon (per your screenshot)
+  # Take a targeted crop around the top bar to verify the icon region
+  # - action: screenshot
+  #   name: 01a_topbar_region
+  #   selector:
+  #     strategy: css
+  #     value: "role=banner >> nth=0"
+
+  - action: click
+    name: open_new_icon_primary
+    optional: true
+    selector:
+      strategy: css
+      value: "button[aria-label*='New'][aria-haspopup='menu'] >> nth=0"
+      timeout_ms: 6000
+
+  - action: screenshot
+    name: s_open_new_icon_primary_clicked
+
+  - action: click
+    name: open_new_icon_role
+    optional: true
+    selector:
+      strategy: css
+      value: "role=button[name=/^(New|New page)$/i] >> nth=0"
+      timeout_ms: 6000
+
+  - action: screenshot
+    name: s_open_new_icon_role_clicked
+
+  - action: click
+    name: open_new_icon_fallback
+    optional: true
+    selector:
+      strategy: css
+      value: "button[aria-haspopup='menu'] >> nth=0"
+      timeout_ms: 6000
+
+  - action: screenshot
+    name: s_open_new_icon_fallback_clicked
+
+  - action: click
+    name: open_new_icon_alt_label
+    optional: true
+    selector:
+      strategy: css
+      value: "[aria-label*='New page'], [aria-label='New'], [data-testid='new-page-button']"
+      timeout_ms: 6000
+
+  - action: screenshot
+    name: s_open_new_icon_alt_label_clicked
+
+  # Show the New menu (popup) and capture it
+  - action: wait_for_selector
+    name: wait_new_menu
+    selector:
+      strategy: css
+      value: "role=menu >> nth=0"
+      timeout_ms: 10000
+    state: visible
+
+  - action: screenshot
+    name: 02_new_menu_open
+
+  - action: click
+    name: choose_database_primary
+    optional: true
+    selector:
+      strategy: css
+      value: "[role='menu'], [role='listbox'], [role='dialog'] >> text=/^Database$/ >> nth=0"
+      timeout_ms: 8000
+
+  - action: screenshot
+    name: s_choose_database_primary_clicked
+
+  - action: click
+    name: choose_database_fallback_text
+    optional: true
+    selector:
+      strategy: text
+      value: "Database"
+      timeout_ms: 6000
+
+  - action: screenshot
+    name: s_choose_database_fallback_text_clicked
+
+  - action: click
+    name: choose_database_fallback_treeitem
+    optional: true
+    selector:
+      strategy: css
+      value: "role=treeitem[name=/^New database$/i] >> nth=0"
+      timeout_ms: 6000
+
+  # - action: screenshot
+  #   name: s_choose_database_fallback_treeitem_clicked
+
+  # 3) New database panel/dialog appears
+  - action: wait_for_selector
+    name: wait_new_database_panel
+    optional: true
+    selector:
+      strategy: css
+      value: "[role='dialog'], [aria-modal='true'], dialog"
+      timeout_ms: 20000
+    state: visible
+
+  - action: screenshot
+    name: 03_new_database_panel
+
+  # Some workspaces immediately create an empty DB page; others show a chooser.
+  # Click "New empty data source" if the panel shows it (optional).
+  - action: click
+    name: choose_new_empty_data_source
+    optional: true
+    selector:
+      strategy: text
+      value: "New empty data source"
+      timeout_ms: 8000
+
+  # - action: screenshot
+  #   name: 03a_new_empty_data_source_clicked
+
+  # Sometimes the panel still needs an explicit "Empty database" tile click
+  - action: click
+    name: choose_empty_database_tile
+    optional: true
+    selector:
+      strategy: css
+      value: "role=dialog >> role=button[name=/^Empty\\s*database$/i] >> nth=0"
+      timeout_ms: 8000
+
+  - action: wait
+    name: settle_db_page
+    ms: 800
+
+  - action: screenshot
+    name: db_loaded
+
+  # Wait for the database page title to appear before interacting
+  - action: wait_for_selector
+    name: wait_db_title_input
+    optional: true
+    selector:
+      strategy: css
+      value: "[data-testid='title-input']"
+      timeout_ms: 15000
+    state: visible
+
+  - action: wait_for_selector
+    name: wait_db_title_heading
+    optional: true
+    selector:
+      strategy: css
+      value: "h1[contenteditable='true']"
+      timeout_ms: 15000
+    state: visible
+
+  # 4) Set database title
+  - action: click
+    name: focus_db_title
+    selector:
+      strategy: css
+      value: "[data-testid='title-input'], h1[contenteditable='true']"
+      timeout_ms: 15000
+
+  - action: screenshot
+    name: 03b_title_focused
+
+  - action: fill
+    name: set_db_title
+    selector:
+      strategy: css
+      value: "[data-testid='title-input'], h1[contenteditable='true']"
+    text: "Lokesh Database"
+
+  - action: wait
+    name: settle_after_title
+    ms: 300
+
+  - action: screenshot
+    name: 03_database_named
+
+  # 6) Add two rows of data (Name + Text)
+  - action: click
+    name: add_row1_toolbar_new
+    optional: true
+    selector:
+      strategy: css
+      value: "role=button[name=/^New$/i] >> nth=0"
+      timeout_ms: 8000
+
+  - action: click
+    name: add_row1_inline
+    optional: true
+    selector:
+      strategy: text
+      value: "+ New page"
+      timeout_ms: 8000
+
+  - action: wait_for_selector
+    name: wait_side_peek_row1
+    selector:
+      strategy: css
+      value: "role=region[name=/Side Peek/i]"
+      timeout_ms: 15000
+    state: visible
+
+  - action: type
+    name: type_row1_title
+    selector:
+      strategy: css
+      value: "role=region[name=/Side Peek/i] >> h1[contenteditable='true']"
+      timeout_ms: 15000
+    text: "Item A"
+    clear: true
+
+  - action: click
+    name: focus_row1_text
+    selector:
+      strategy: css
+      value: "role=region[name=/Side Peek/i] >> role=textbox[name=/Text/i] >> nth=0"
+      timeout_ms: 15000
+
+  - action: type
+    name: type_row1_text
+    selector:
+      strategy: css
+      value: "role=region[name=/Side Peek/i] >> role=textbox[name=/Text/i] >> nth=0"
+      timeout_ms: 15000
+    text: "Alpha"
+    clear: true
+
+  - action: press
+    name: back_from_row1
+    key: "Alt+ArrowLeft"
+
+  - action: screenshot
+    name: 08_row1_added
+
+  - action: click
+    name: add_row2_toolbar_new
+    optional: true
+    selector:
+      strategy: css
+      value: "role=button[name=/^New$/i] >> nth=0"
+      timeout_ms: 8000
+
+  - action: click
+    name: add_row2_inline
+    optional: true
+    selector:
+      strategy: text
+      value: "+ New page"
+      timeout_ms: 8000
+
+  - action: wait_for_selector
+    name: wait_side_peek_row2
+    selector:
+      strategy: css
+      value: "role=region[name=/Side Peek/i]"
+      timeout_ms: 15000
+    state: visible
+
+  - action: type
+    name: type_row2_title
+    selector:
+      strategy: css
+      value: "role=region[name=/Side Peek/i] >> h1[contenteditable='true']"
+      timeout_ms: 15000
+    text: "Item B"
+    clear: true
+
+  - action: click
+    name: focus_row2_text
+    selector:
+      strategy: css
+      value: "role=region[name=/Side Peek/i] >> role=textbox[name=/Text/i] >> nth=0"
+      timeout_ms: 15000
+
+  - action: type
+    name: type_row2_text
+    selector:
+      strategy: css
+      value: "role=region[name=/Side Peek/i] >> role=textbox[name=/Text/i] >> nth=0"
+      timeout_ms: 15000
+    text: "Beta"
+    clear: true
+
+  - action: press
+    name: back_from_row2
+    key: "Alt+ArrowLeft"
+
+  - action: screenshot
+    name: 09_rows_added
+  # 5) Quick sanity assertions
+  - action: assert_visible
+    name: assert_new_button_present
+    selector:
+      strategy: css
+      value: "role=button[name=/New/i] >> nth=0"
+      timeout_ms: 15000
+
+  - action: assert_url_contains
+    name: assert_url_is_notion
+    text: "notion.so"

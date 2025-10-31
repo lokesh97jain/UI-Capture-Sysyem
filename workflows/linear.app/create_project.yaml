@@ -1,0 +1,128 @@
+version: "1"
+site: linear.app
+task: create_project
+description: "Create a project in Linear and capture states"
+use_storage_state: true
+default_after_wait_ms: 600
+
+steps:
+  - action: goto
+    name: open_projects
+    url: "https://linear.app/lokeshtest/projects"
+
+  - action: wait_for_network_idle
+    name: initial_idle
+    idle_ms: 500
+
+  - action: screenshot
+    name: 00_projects_page
+
+  # Use keyboard shortcut N then P to open the create project flow
+  - action: press
+    name: press_n
+    key: "n"
+    after_wait_ms: 120
+  - action: press
+    name: press_p
+    key: "p"
+    after_wait_ms: 200
+
+  # Wait for the modal to be present
+  - action: wait_for_selector
+    name: wait_modal_dialog
+    selector:
+      strategy: css
+      value: "[role='dialog'], div[aria-modal='true']"
+    timeout_ms: 15000
+    state: visible
+
+  - action: screenshot
+    name: 01_modal_open
+
+  - action: wait_for_selector
+    name: wait_title_input
+    selector:
+      strategy: role
+      value: 'textbox[name="Project name"]'
+    timeout_ms: 15000
+    state: visible
+
+  - action: type
+    name: fill_title
+    selector:
+      strategy: role
+      value: 'textbox[name="Project name"]'
+    timeout_ms: 15000
+    text: "Test Project"
+
+  - action: screenshot
+    name: 02_title_typed
+
+  # Summary field
+  - action: wait_for_selector
+    name: wait_summary_input
+    selector:
+      strategy: role
+      value: 'textbox[name="Project summary"]'
+    timeout_ms: 15000
+    state: visible
+
+  - action: click
+    name: focus_summary
+    selector:
+      strategy: role
+      value: 'textbox[name="Project summary"]'
+    timeout_ms: 15000
+
+  - action: type
+    name: fill_summary
+    selector:
+      strategy: role
+      value: 'textbox[name="Project summary"]'
+    timeout_ms: 15000
+    text: "Created by Lokesh"
+
+  - action: screenshot
+    name: 03_summary_typed
+
+
+# Fill in the description
+  - action: click
+    name: focus_description
+    selector:
+      strategy: role
+      value: 'textbox[name="Project description"]'
+    timeout_ms: 15000
+
+  - action: type
+    name: fill_description
+    selector:
+      strategy: role
+      value: 'textbox[name="Project description"]'
+    timeout_ms: 15000
+    text: "Created by UI capture"
+
+  - action: screenshot
+    name: 04_description_typed
+
+  - action: wait_for_selector
+    name: wait_submit_button
+    selector:
+      strategy: css
+      value: "[role='dialog'] button:has-text('Create'), [role='dialog'] button:has-text('Create project')"
+    timeout_ms: 15000
+    state: visible
+
+  - action: click
+    name: submit_create
+    selector:
+      strategy: css
+      value: "[role='dialog'] button:has-text('Create'), [role='dialog'] button:has-text('Create project')"
+    timeout_ms: 15000
+
+  - action: wait_for_network_idle
+    name: settle
+    idle_ms: 1000
+
+  - action: screenshot
+    name: 05_after_submit

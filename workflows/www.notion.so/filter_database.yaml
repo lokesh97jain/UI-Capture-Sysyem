@@ -1,0 +1,59 @@
+# Add a filter to a Notion database and capture the filtered state
+version: "1"
+site: "www.notion.so"
+task: "filter_database"
+description: "Open Filters → add a filter → capture filtered view"
+use_storage_state: true
+
+steps:
+  - action: goto
+    name: "open_workspace"
+    url: "https://www.notion.so"
+
+  - action: wait_for_network_idle
+    name: "settle_home"
+    idle_ms: 1200
+
+  # TODO: If you must open a specific DB page, add a goto step to that URL.
+
+  # Open the database filter UI (Notion surfaces 'Filter' or 'Filter by' in the DB toolbar)
+  - action: wait_for_selector
+    name: "wait_filter_button"
+    selector:
+      strategy: text
+      value: "Filter"
+    state: "visible"
+
+  - action: click
+    name: "click_filter_button"
+    selector:
+      strategy: text
+      value: "Filter"
+
+  - action: wait_for_selector
+    name: "wait_filter_panel"
+    selector:
+      strategy: css
+      value: "[role='dialog'], [data-orientation='vertical'] [role='menu'], [aria-label*='Filter']"
+    state: "visible"
+
+  - action: screenshot
+    name: "filter_panel_open"
+    selector:
+      strategy: css
+      value: "[role='dialog'], [data-orientation='vertical'] [role='menu'], [aria-label*='Filter']"
+
+  # Add a very simple filter row (you’ll likely tweak the text below to match your column/value)
+  - action: click
+    name: "add_filter_row"
+    selector:
+      strategy: text
+      value: "Add filter"
+
+  - action: wait
+    name: "pause_after_add"
+    ms: 500
+
+  - action: screenshot
+    name: "filtered_state"
+    full_page: true
